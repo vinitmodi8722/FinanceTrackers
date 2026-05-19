@@ -27,10 +27,10 @@ export const DataProvider = ({ children }) => {
 
         try {
             const [transRes, goalsRes, debtsRes, investRes] = await Promise.all([
-                axios.get(`${import.meta.env.VITE_API_URL}/api/transactions`, { headers: { 'x-auth-token': token } }),
-                axios.get(`${import.meta.env.VITE_API_URL}/api/goals`, { headers: { 'x-auth-token': token } }),
-                axios.get(`${import.meta.env.VITE_API_URL}/api/debts`, { headers: { 'x-auth-token': token } }),
-                axios.get(`${import.meta.env.VITE_API_URL}/api/investments`, { headers: { 'x-auth-token': token } })
+                axios.get(`${process.env.REACT_APP_API_URL}/api/transactions`, { headers: { 'x-auth-token': token } }),
+                axios.get(`${process.env.REACT_APP_API_URL}/api/goals`, { headers: { 'x-auth-token': token } }),
+                axios.get(`${process.env.REACT_APP_API_URL}/api/debts`, { headers: { 'x-auth-token': token } }),
+                axios.get(`${process.env.REACT_APP_API_URL}/api/investments`, { headers: { 'x-auth-token': token } })
             ]);
 
             setTransactions(transRes.data);
@@ -52,47 +52,47 @@ export const DataProvider = ({ children }) => {
     }, [token, authLoading]);
 
     const addTransaction = async (transaction) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/transactions`, transaction);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/transactions`, transaction);
         setTransactions([res.data, ...transactions]);
     };
 
     const addGoal = async (goal) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/goals`, goal);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/goals`, goal);
         setGoals([res.data, ...goals]);
     };
 
     const updateGoal = async (id, currentAmount) => {
-        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/goals/${id}`, { currentAmount });
+        const res = await axios.put(`${process.env.REACT_APP_API_URL}/api/goals/${id}`, { currentAmount });
         setGoals(goals.map(g => g._id === id ? res.data : g));
     };
 
     const addDebt = async (debt) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/debts`, debt);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/debts`, debt);
         setDebts([res.data, ...debts]);
     };
 
     const updateDebt = async (id, data) => {
-        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/debts/${id}`, data);
+        const res = await axios.put(`${process.env.REACT_APP_API_URL}/api/debts/${id}`, data);
         setDebts(debts.map(d => d._id === id ? res.data : d));
     };
 
     const addInvestment = async (investment) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/investments`, investment);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/investments`, investment);
         setInvestments([res.data, ...investments]);
     };
 
     const deleteInvestment = async (id) => {
-        await axios.delete(`${import.meta.env.VITE_API_URL}/api/investments/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/investments/${id}`);
         setInvestments(investments.filter(inv => inv._id !== id));
     };
 
     const updateInvestment = async (id, data) => {
-        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/investments/${id}`, data);
+        const res = await axios.put(`${process.env.REACT_APP_API_URL}/api/investments/${id}`, data);
         setInvestments(investments.map(inv => inv._id === id ? res.data : inv));
     };
 
     const refreshInvestments = async () => {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/investments`, { headers: { 'x-auth-token': token } });
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/investments`, { headers: { 'x-auth-token': token } });
         setInvestments(res.data);
     };
 

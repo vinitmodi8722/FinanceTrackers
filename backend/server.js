@@ -29,6 +29,10 @@ app.get("/", (req, res) => {
     res.send("Finance Tracker API Running");
 });
 
-app.listen(5000, () => {
-    console.log("Server running on port 5000");
-});
+if (process.env.NODE_ENV !== "production") {
+    app.listen(5000, () => {
+        console.log("Server running on port 5000");
+    });
+}
+
+module.exports = app;
