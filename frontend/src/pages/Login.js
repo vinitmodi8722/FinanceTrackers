@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { PiggyBank, Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
+import { Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
@@ -103,9 +103,9 @@ export default function Login() {
                             </div>
 
                             <div className="text-sm">
-                                <a href="#" className="font-bold text-indigo-600 hover:text-indigo-500 transition-colors">
+                                <Link to="#" className="font-bold text-indigo-600 hover:text-indigo-500 transition-colors">
                                     Forgot password?
-                                </a>
+                                </Link>
                             </div>
                         </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { ArrowUpRight, ArrowDownRight, Wallet, IndianRupee, Target, PlusCircle, X, CreditCard, Shield } from 'lucide-react';
+import { ArrowUpRight, ArrowDownRight, Wallet, IndianRupee, Target, PlusCircle, X, CreditCard } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { Link } from 'react-router-dom';
 

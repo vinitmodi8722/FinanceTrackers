@@ -48,6 +48,7 @@ export const DataProvider = ({ children }) => {
         if (!authLoading) {
             fetchData();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, authLoading]);
 
     const addTransaction = async (transaction) => {

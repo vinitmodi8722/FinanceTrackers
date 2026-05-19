@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Calendar, PieChart as PieChartIcon, X, DollarSign } from 'lucide-react';
+import { Calculator, Calendar, PieChart as PieChartIcon, X } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useData } from '../context/DataContext';
 

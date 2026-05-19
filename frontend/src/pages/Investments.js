@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TrendingUp, PlusCircle, X, PiggyBank, Landmark, LineChart, Calendar, Wallet, ChevronRight, AlertCircle, Trash2 } from 'lucide-react';
+import { TrendingUp, PlusCircle, X, PiggyBank, Landmark, LineChart, Calendar, Wallet, AlertCircle, Trash2 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 
 export default function Investments() {
